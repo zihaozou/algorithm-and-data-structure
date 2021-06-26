@@ -1,0 +1,35 @@
+自动寻路算法——A*
+
+起点为S，目标顶点为D
+
+Came_From——哈希表，Came_From[x]=y：从S到顶点x最近的路线的上一级为y
+
+Cost_So_Far--哈希，Cost_So_Far[x]=y：从S到达x的最短距离
+
+C--当前代价，从S到当前节点x的距离
+
+C*--预估代价,曼哈顿距离
+
+优先队列P--维护以探查过的顶点的C+C*
+
+
+frontier = PriorityQueue()
+frontier.put(start, 0)
+came_from = dict()
+cost_so_far = dict()
+came_from[start] = None
+cost_so_far[start] = 0
+
+while not frontier.empty():
+   current = frontier.get()
+
+   if current == goal:
+      break
+   
+   for next in graph.neighbors(current):
+      new_cost = cost_so_far[current] + graph.cost(current, next)
+      if next not in cost_so_far or new_cost < cost_so_far[next]:
+         cost_so_far[next] = new_cost
+         priority = new_cost + heuristic(goal, next)
+         frontier.put(next, priority)
+         came_from[next] = current

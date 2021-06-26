@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sorting/algorithm"
+)
 
 func main() {
 	/*RB Tree test
@@ -32,8 +35,6 @@ func main() {
 		node3 := algorithm.ReListNode{Val: 3, Next: &node4}
 		algorithm.ReverseList(&node3)
 	*/
-	temp := make([]int, 0)
-	temp = append(temp, 1)
-	temp = temp[1:]
-	fmt.Printf("%v", temp)
+	step := algorithm.OpenLock([]string{"0201", "0101", "0102", "1212", "2002"}, "0202")
+	fmt.Printf("step: %v\n", step)
 }
