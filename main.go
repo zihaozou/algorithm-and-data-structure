@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"sorting/algorithm"
-)
+import "sorting/algorithm"
 
 func main() {
 	/*RB Tree test
@@ -35,6 +32,22 @@ func main() {
 		node3 := algorithm.ReListNode{Val: 3, Next: &node4}
 		algorithm.ReverseList(&node3)
 	*/
-	step := algorithm.OpenLock([]string{"0201", "0101", "0102", "1212", "2002"}, "0202")
-	fmt.Printf("step: %v\n", step)
+	/*
+		data := make([][]int, 6)
+		data[0] = []int{0, 1}
+		data[1] = []int{0, 2}
+		data[2] = []int{2, 1}
+		data[3] = []int{1, 2}
+		data[4] = []int{1, 0}
+		data[5] = []int{2, 0}
+		algorithm.NumWaysLCP07(3, data, 5)
+	*/
+	edges := make([][]int, 6)
+	edges[0] = []int{1, 2}
+	edges[1] = []int{1, 3}
+	edges[2] = []int{1, 7}
+	edges[3] = []int{2, 4}
+	edges[4] = []int{2, 6}
+	edges[5] = []int{3, 5}
+	algorithm.FrogPosition(7, edges, 2, 4)
 }
